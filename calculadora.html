@@ -43,39 +43,56 @@
     <input type="button" onclick="calcular()" value="calcular" style="margin: 10% 40%;" >
     </div>
   <script>
-    
+      
     var op = document.getElementById('desejo').value;
     
     var tela = document.getElementById('tela');
     tela.innerHTML = "<p>Digite os números e selecione a operação:</p>";
     
+    function somar(numA,numB){
+      
+      result =Number( numA) + Number(numB );
+      return tela.innerHTML = "<h1> O resultado de somar "+numA +" por "+ numB+" é "+result+"</h1>"
+      
+    }
+    function subtrair(numA, numB){
+      result =Number( numA) - Number(numB );
+      tela.innerHTML = "<h1> O resultado de subtrair "+numA +" por "+ numB+" é "+result+"</h1>"
+    }
+    function multiplicar(numA, numB){
+      result =Number( numA) * Number(numB );
+      tela.innerHTML = "<h1> O resultado de multiplicar "+numA +" por "+ numB+" é "+result+"</h1>"
+    }
+    function dividir(numA, numB){
+      result =Number( numA) / Number(numB );
+      tela.innerHTML = "<h1> O resultado de dividir "+numA +" por "+ numB+" é "+result+"</h1>"
+    }
     
-    
-    function calcular(op){
+    function calcular(numA, numB, op){
       
       numA = document.getElementById('numA').value;
       numB = document.getElementById('numB').value;
       
-     op = document.getElementById('desejo').value;
+      op = document.getElementById('desejo').value;
         if(op === "somar"){
           
-          result =Number( numA) + Number(numB );
+          somar(numA, numB)
           
         }
         else if(op === "subtrair"){
-          result =Number( numA) -  Number(numB );
+          subtrair(numA, numB)
           
         }
         else if( op === "dividir"){
-          result =Number( numA) - Number(numB );
+          dividir(numA, numB)
           
         }
         else{
-          result = Number( numA) *  Number(numB );
           
+          multiplicar(numA, numB)
         }
       
-      tela.innerHTML = "<h1> O resultado de "+op+" "+numA +" por "+ numB+" é "+result+"</h1>"
+      
         
     }
   </script>
