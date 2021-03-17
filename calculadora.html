@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    #Video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+  </style>
+  <title>Calculadora</title>
+</head>
+<body>
+  <video autoplay muted loop id="Video">
+  <source src="africa.mp4" type="video/mp4">
+</video>
+  <div class="content">
+  <div id="tela"></div>
+  <label for="numA">Primeiro número :</label>
+   <input type="text" id="numA" onfocus="this.value=''"><br><br>
+  <label for="numA">Segundo número :</label>
+   <input type="text" id="numB" onfocus="this.value=''">
+   
+     <select name="desejo" id="desejo">
+      <option value="somar">+</option>
+      <option value="subtrair">-</option>
+      <option value="multiplicar">x</option>
+      <option value="dividir">÷</option>
+     </select><br>
+    <input type="button" onclick="calcular()" value="calcular" style="margin: 10% 40%;" >
+    </div>
+  <script>
+    
+    var op = document.getElementById('desejo').value;
+    
+    var tela = document.getElementById('tela');
+    tela.innerHTML = "<p>Digite os números e selecione a operação:</p>";
+    
+    
+    
+    function calcular(op){
+      
+      numA = document.getElementById('numA').value;
+      numB = document.getElementById('numB').value;
+      
+     op = document.getElementById('desejo').value;
+        if(op === "somar"){
+          
+          result =Number( numA) + Number(numB );
+          
+        }
+        else if(op === "subtrair"){
+          result =Number( numA) -  Number(numB );
+          
+        }
+        else if( op === "dividir"){
+          result =Number( numA) - Number(numB );
+          
+        }
+        else{
+          result = Number( numA) *  Number(numB );
+          
+        }
+      
+      tela.innerHTML = "<h1> O resultado de "+op+" "+numA +" por "+ numB+" é "+result+"</h1>"
+        
+    }
+  </script>
+</body>
+</html>
