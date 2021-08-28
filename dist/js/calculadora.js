@@ -12,7 +12,7 @@
           " por " +
           numB +
           " é " +
-          result +
+          result.toFixed(2) +
           "</h1>");
       }
       function subtrair(numA, numB) {
@@ -23,7 +23,7 @@
           " por " +
           numB +
           " é " +
-          result +
+          result.toFixed(2) +
           "</h1>";
       }
       function multiplicar(numA, numB) {
@@ -34,19 +34,23 @@
           " por " +
           numB +
           " é " +
-          result +
+          result.toFixed(2) +
           "</h1>";
       }
       function dividir(numA, numB) {
         result = Number(numA) / Number(numB);
+        if (numB == 0) {
+            result = 0
+        }
         tela.innerHTML =
           "<h1> O resultado de dividir " +
           numA +
           " por " +
           numB +
           " é " +
-          result +
+          result.toFixed(2) +
           "</h1>";
+          
       }
 
       function calcular(numA, numB, op) {
@@ -60,8 +64,16 @@
           subtrair(numA, numB);
         } else if (op === "dividir") {
           dividir(numA, numB);
-        } else {
+        } else if (op == "multiplicar") {
           multiplicar(numA, numB);
+        } else {
+            tela.innerHTML = "<h1>Escolha a operação matemática!</h1>"
+        }
+        if (numA == "" || numB == "") {
+
+            tela.innerHTML = "<h1>Campo em branco, insira o primeiro e o segundo número!</h1>"
+            
+            
         }
       }
     
